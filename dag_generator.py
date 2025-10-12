@@ -13,7 +13,7 @@ def get_latest_config_row(df: pd.DataFrame) -> pd.Series:
 
 def create_dag_id(row: pd.Series) -> str:
     """Create DAG ID based on the config row."""
-    return f"{row['source_system']}_{row['source_schema']}_{row['source_data']}_to_{row['target_system']}_{row['target_schema']}_{row['target_data']}"
+    return f"{row['source_system']}_{row['source_schema']}_{row['source_table']}_to_{row['target_system']}_{row['target_schema']}_{row['target_table']}"
 
 def render_dag_template(dag_id: str, row: pd.Series) -> str:
     """Render the DAG template with the provided config."""
@@ -32,31 +32,40 @@ default_args = {
 with DAG(
     dag_id="{{ dag_id }}",
     default_args=default_args,
-    schedule_interval=None,
+    schedule_interval={{ schedule }},
     catchup=False,
     tags=['auto-generated'],
 ) as dag:
 
     extract = BashOperator(
         task_id='extract_data',
-        bash_command='echo "Extracting data from {{ source_system }}.{{ source_schema }}.{{ source_data }}"'
+        bash_command='echo "Extracting data from {{ source_system }}.{{ source_schema }}.{{ source_table }}"'
     )
 
     load = BashOperator(
         task_id='load_data',
-        bash_command='echo "Loading data into {{ target_system }}.{{ target_schema }}.{{ target_data }}"'
+        bash_command='echo "Loading data into {{ target_system }}.{{ target_schema }}.{{ target_table }}"'
     )
 
     extract >> load
 """
+
+    # Format schedule as a string or None
+    raw_schedule = str(row["schedule"]).strip()
+    schedule_value = (
+        "None" if not raw_schedule or pd.isna(row["schedule"])
+        else f'"{raw_schedule}"'
+    )
+
     return Template(dag_template).render(
         dag_id=dag_id,
         source_system=row['source_system'],
         source_schema=row['source_schema'],
-        source_data=row['source_data'],
+        source_table=row['source_table'],
         target_system=row['target_system'],
         target_schema=row['target_schema'],
-        target_data=row['target_data'],
+        target_table=row['target_table'],
+        schedule=schedule_value
     )
 
 def save_dag(rendered_dag: str, output_dir: str, dag_id: str):
@@ -78,8 +87,8 @@ def main():
     config_csv_path = "config/ingestion.csv"
     output_dir = "generated_dags"
 
-    print(f"Generating DAG from last row of config: {config_csv_path}")
-    print(f"Output directory: {output_dir}")
+    print(f"📘 Generating DAG from last row of: {config_csv_path}")
+    print(f"📁 Output directory: {output_dir}")
 
     try:
         generate_dag(config_csv_path, output_dir)
