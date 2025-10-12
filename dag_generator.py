@@ -34,6 +34,7 @@ with DAG(
     default_args=default_args,
     schedule_interval={{ schedule }},
     catchup=False,
+    is_paused_upon_creation=False,  # ✅ Auto-enable when added
     tags=['auto-generated'],
 ) as dag:
 
