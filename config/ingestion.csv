@@ -1,6 +1,6 @@
 source_system,source_schema,source_table,target_system,target_schema,target_table,schedule,creation_time
 sybase,hsmi,dmebi,hive,adv_hsmi,adv_dmebi,0 9 * * *,2025-10-11 16:53:05
-sybase_1,hsmi_1,dmebi,hive,adv_hsmi,adv_dmebi,,0 9 * * *2025-10-11 16:55:30
+sybase_1,hsmi_1,dmebi,hive,adv_hsmi,adv_dmebi,0 9 * * *,2025-10-11 16:55:30
 sybase_2,hsmi_2,dmebi,hive,adv_hsmi,adv_dmebi,0 9 * * *,2025-10-11 17:08:03
 oracle,hr,emp,hive,hr,emp,0 9 * * *,2025-10-12 14:56:04
 sybase,hr,cust,hive,hr,cust,0 9 * * *,2025-10-12 15:03:43
