@@ -7,3 +7,4 @@ sybase,hr,cust,hive,hr,cust,0 9 * * *,2025-10-12 15:03:43
 sybase_test,hr,cust,hive,hr,cust,0 9 * * *,2025-10-12 15:11:38
 hana,tran,ftr,hive,tran,ftr,0 9 * * *,2025-10-12 15:13:54
 hana_test,tran,ftr,hive,tran,ftr,0 16 * * *,2025-10-12 15:26:12
+hana_v1,tran,ftr,hive,tran,ftr,0 16 * * *,2025-10-12 15:38:40
