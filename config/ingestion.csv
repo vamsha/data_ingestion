@@ -2,3 +2,4 @@ source_system,source_schema,source_data,target_system,target_schema,target_data,
 sybase,hsmi,dmebi,hive,adv_hsmi,adv_dmebi,2025-10-11 16:53:05
 sybase_1,hsmi_1,dmebi,hive,adv_hsmi,adv_dmebi,2025-10-11 16:55:30
 sybase_2,hsmi_2,dmebi,hive,adv_hsmi,adv_dmebi,2025-10-11 17:08:03
+oracle,hr,emp,hive,hr,emp,2025-10-12 14:56:04
