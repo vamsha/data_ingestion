@@ -10,3 +10,4 @@ hana_test,tran,ftr,hive,tran,ftr,0 16 * * *,2025-10-12 15:26:12
 hana_v1,tran,ftr,hive,tran,ftr,0 16 * * *,2025-10-12 15:38:40
 EDP,sales,customers,Sandpit,Sales,customers,0 16 * * *,2025-10-12 15:48:42
 edp,cust,ftr,hive,cust,ftr,0 17 * * *,2025-10-12 16:35:52
+EDP,sales,customers,Sandpit,sales,customers,everyday 9am,2025-10-14 19:52:08
