@@ -13,3 +13,4 @@ edp,cust,ftr,hive,cust,ftr,0 17 * * *,2025-10-12 16:35:52
 EDP,raw,customer_demographics,Sandpit,ai_cust,customer_demographics,adhoc,2025-10-15 18:27:04
 EDP,raw,customer_demographics,Sandpit,ai_dpl,ai_dpl_customer_demographics,everyday at 5pm,2025-10-15 19:53:28
 EDP,dpl,customer_demographics,Sandpit,ai_dpl,customers,everyday at 7pm,2025-10-15 21:54:45
+EDP,dpl,customer_demographics,Sandpit,ai_dpl,customer_demographics,everyday 7pm,2025-10-15 22:31:52
