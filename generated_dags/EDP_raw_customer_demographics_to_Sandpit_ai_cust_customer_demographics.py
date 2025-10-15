@@ -13,7 +13,7 @@ default_args = {
 with DAG(
     dag_id="EDP_raw_customer_demographics_to_Sandpit_ai_cust_customer_demographics",
     default_args=default_args,
-    schedule_interval="adhoc",
+    schedule_interval="0 18 * * *",
     catchup=False,
     is_paused_upon_creation=False,  # ✅ Auto-enable when added
     tags=['auto-generated'],
